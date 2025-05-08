@@ -3,8 +3,8 @@ on:
   push:
     branches:  #whenever a push is regitered via commit /git push
       - main
-  workflow-disptach:
-  jobs:
+    workflow-disptach:
+jobs:
     print-testfile:
       runs-on: ubuntu-latest
       steps:
