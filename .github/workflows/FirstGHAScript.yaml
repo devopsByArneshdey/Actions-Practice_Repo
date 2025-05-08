@@ -1,18 +1,18 @@
-name : test_gha
-on :
-  push :
-    branches :  #whenever a push is regitered via commit /git push
+name: test_gha
+on:
+  push:
+    branches:  #whenever a push is regitered via commit /git push
       - main
-  workflow-disptach :
-jobs :
-    print-testfile :
-      runs-on : ubuntu-latest
+  workflow-disptach:
+  jobs:
+    print-testfile:
+      runs-on: ubuntu-latest
       steps:
     - name: checkout repo code
       uses: actions/checkout@v4
     - name: Check and display testfile
       run: |
-          if [ -f helloworld.txt ]; then
+          if [ -f TestFile ]; then
             echo "Contents of helloworld.txt:"
             cat TestFile
           else
