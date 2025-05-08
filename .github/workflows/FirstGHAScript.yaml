@@ -1,0 +1,20 @@
+name : test_gha
+  on :
+  push :
+    branch : [main] #whenever a push is regitered via commit /git push
+  
+jobs :
+    print-testfile :
+      runs-on : ubuntu-latest
+      steps:
+    - name: checkout repo code
+      uses: actions/checkout@v4
+    - name: Check and display testfile
+      run: |
+          if [ -f helloworld.txt ]; then
+            echo "Contents of helloworld.txt:"
+            cat TestFile
+          else
+            echo "Error: TestFile not found"
+            exit 1
+          fi
