@@ -1,7 +1,7 @@
 name : test_gha
   on :
   push :
-    branch :  #whenever a push is regitered via commit /git push
+    branches :  #whenever a push is regitered via commit /git push
       - main
 jobs :
     print-testfile :
