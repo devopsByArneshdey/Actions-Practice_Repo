@@ -1,21 +1,21 @@
 name: test_gha
 on:
   push:
-    branches:  #whenever a push is regitered via commit /git push
+    branches:
       - main
-    workflow-disptach:
+  workflow_dispatch:
 jobs:
   print-testfile:
-      runs-on: ubuntu-latest
-      steps:
-    - name: checkout repo code
-      uses: actions/checkout@v4
-    - name: Check and display testfile
-      run: |
-          if [ -f TestFile ]; then
-            echo "Contents of helloworld.txt:"
-            cat TestFile
-          else
-            echo "Error: TestFile not found"
-            exit 1
-          fi
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo code
+        uses: actions/checkout@v4
+      - name: Check and display testfile
+        run: |
+            if [ -f TestFile ]; then
+              echo "Contents of TestFile:"
+              cat TestFile
+            else
+              echo "Error: TestFile not found"
+              exit 1
+            fi
