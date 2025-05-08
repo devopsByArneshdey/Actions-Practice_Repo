@@ -2,7 +2,7 @@ name : test_gha
   on :
   push :
     branch :  #whenever a push is regitered via commit /git push
-      - main :
+      - main
 jobs :
     print-testfile :
       runs-on : ubuntu-latest
