@@ -1,8 +1,9 @@
 name : test_gha
-  on :
+on :
   push :
     branches :  #whenever a push is regitered via commit /git push
       - main
+  workflow-disptach :
 jobs :
     print-testfile :
       runs-on : ubuntu-latest
