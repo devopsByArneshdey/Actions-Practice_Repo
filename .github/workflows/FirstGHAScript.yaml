@@ -1,8 +1,8 @@
 name : test_gha
   on :
   push :
-    branch : [main] #whenever a push is regitered via commit /git push
-  
+    branch :  #whenever a push is regitered via commit /git push
+      - main :
 jobs :
     print-testfile :
       runs-on : ubuntu-latest
