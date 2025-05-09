@@ -27,7 +27,7 @@ jobs:
         run: |
           node -v
           npm -v
-          npm install --force    
+          npm install    
           
 
     
