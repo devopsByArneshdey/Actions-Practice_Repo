@@ -25,11 +25,8 @@ jobs:
           node-version: 18
       - name: Install dependencies
         run: |
-          working-directory: ./Actions-Practice_Repo
           node -v
-          npm -v
-          sudo npm install  --force
-          
+          npm -v          
 
     
   
