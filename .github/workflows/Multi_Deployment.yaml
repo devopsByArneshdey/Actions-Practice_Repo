@@ -28,7 +28,7 @@ jobs:
           working-directory: ./Actions-Practice_Repo
           node -v
           npm -v
-          npm install    
+          sudo npm install  --force
           
 
     
