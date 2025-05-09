@@ -1,0 +1,15 @@
+name: pythonNodejsVersions
+on:
+# push:
+# workflow_dispatch:
+jobs:
+  python-install:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check_Repo
+      uses: actions/checkout@v4
+      token: ${{GITHUB.TOKEN}}
+  python_installation:
+    
+  
+    
