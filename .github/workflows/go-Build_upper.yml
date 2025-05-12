@@ -29,4 +29,5 @@ jobs:
          go build
          ls
          go test
-       working-directory: ./upper
+         ./upper arnesh dey
+       working-directory: upper
