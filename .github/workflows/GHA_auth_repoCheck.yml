@@ -1,7 +1,7 @@
 name: gha_repo_check_auth
-  on:
-   push:
-   workflow_dispatch:
+on:
+ push:
+ workflow_dispatch:
 jobs:
   cli:
     runs-on: ubuntu-latest
