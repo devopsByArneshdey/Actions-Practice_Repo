@@ -1,0 +1,7 @@
+name: upper-build
+on: 
+ push:
+  paths:
+  - "./upper/**"
+  - ".github/workflows/go-Build_upper.yml"
+ 
