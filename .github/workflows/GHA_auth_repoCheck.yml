@@ -1,0 +1,19 @@
+name: gha_repo_check_auth
+  on:
+   push:
+   workflow_dispatch:
+jobs:
+  cli:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v4
+      - name: run few commands
+        run: |
+          env
+          gh --version
+          gh auth status
+          gh repo list
+          gh issue list
+          gh workflow list
+          gh api /repos/:owner/:repo/actions/workflows
