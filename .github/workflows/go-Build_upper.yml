@@ -15,7 +15,7 @@ jobs:
      - name: Setup a go environment
        uses: actions/setup-go@v5
        with:
-        go-version: '1.20'
+        go-version: '1.22'
      - name: Download dependencies
        run: go mod download
        working-directory: ./upper
