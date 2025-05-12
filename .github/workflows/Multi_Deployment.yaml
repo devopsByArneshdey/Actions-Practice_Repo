@@ -1,6 +1,6 @@
 name: pythonNodejsVersions
 on:
-  push:
+#  push:
   workflow_dispatch:
 jobs:
   python-install:
