@@ -1,6 +1,8 @@
 name: gha_repo_check_auth
 on:
  push:
+   paths:
+     - ".github/workflows/GHA_auth_repoCheck.yml"
  workflow_dispatch:
 jobs:
   cli:
