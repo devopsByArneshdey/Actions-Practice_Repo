@@ -5,6 +5,8 @@ on:
 jobs:
   cli:
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: checkout repo
         uses: actions/checkout@v4
