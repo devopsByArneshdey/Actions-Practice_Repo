@@ -10,8 +10,10 @@ jobs:
   build-go:
     runs-on: ubuntu-latest
     steps:
+     - run: pwd && ls -al
      - name: Checkout repository
        uses: actions/checkout@v4
+     - run: pwd && ls -al
      - name: Setup a go environment
        uses: actions/setup-go@v5
        with:
