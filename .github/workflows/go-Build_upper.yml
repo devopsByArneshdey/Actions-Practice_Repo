@@ -10,18 +10,15 @@ jobs:
   build-go:
     runs-on: ubuntu-latest
     steps:
-     - run: pwd && ls -al
      - name: Checkout repository
        uses: actions/checkout@v4
      - run: pwd && ls -al
-     - run: go version
      - name: Setup a go environment
        uses: actions/setup-go@v5
        with:
         #go-version: '1.22'
         go-version-file: ./upper/go.mod
-        #cache-dependency-path: ./upper/go.sum
-     - run: go version
+        cache-dependency-path: ./upper/go.sum
      - name: Download dependencies
        run: go mod download
        working-directory: ./upper
