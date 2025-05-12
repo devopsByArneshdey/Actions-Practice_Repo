@@ -8,20 +8,20 @@ on:
 
 jobs:
   build-go:
-  runs-on: ubuntu-latest
-  steps:
-    - name: Checkout reporsitory
-    - uses: actions/checkout@v4
-    - name: Setup a go environment
-    - uses: actions/setup-go@v5
-      with:
-       go-version: '1.20'
-    - run: go mod download
-      working-directory: ./upper
-    - name: Build and  Test
-    - run: |
-        ls
-        go build
-        ls
-        go test
-    working-directory: ./upper
+    runs-on: ubuntu-latest
+    steps:
+     - name: Checkout reporsitory
+     - uses: actions/checkout@v4
+     - name: Setup a go environment
+     - uses: actions/setup-go@v5
+       with:
+        go-version: '1.20'
+     - run: go mod download
+       working-directory: ./upper
+     - name: Build and  Test
+     - run: |
+         ls
+         go build
+         ls
+         go test
+     working-directory: ./upper
