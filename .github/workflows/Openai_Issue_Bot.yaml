@@ -1,0 +1,21 @@
+name: openai-PR-chatbot-withoutIF
+on:
+ issue_comment:
+    types: [created]
+
+permissions:
+    pull-requests: write
+
+jobs:
+  chat:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - uses: ca-dp/code-butler@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          cmd: chat
+          comment_body: ${{ github.event.comment.body }}
+
