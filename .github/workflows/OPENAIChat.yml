@@ -1,4 +1,4 @@
-name: OpenAI Chat on PR Comments
+name: OpenAI Chat on PR
 on:
   issue_comment:
     types: [created]
