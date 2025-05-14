@@ -2,10 +2,9 @@ name: openai-PR-chatbot-withoutIF
 on:
  issue_comment:
     types: [created]
-
 permissions:
-    pull-requests: write
-
+  contents: read
+  pull-requests: write
 jobs:
   chat:
     runs-on: ubuntu-latest
