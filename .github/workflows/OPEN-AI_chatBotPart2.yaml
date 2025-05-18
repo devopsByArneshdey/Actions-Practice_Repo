@@ -1,4 +1,4 @@
-name: openai-PR-chatbot-withoutIF
+name: openai-PR-chatbot
 permissions:
   contents: read
   pull-requests: write
