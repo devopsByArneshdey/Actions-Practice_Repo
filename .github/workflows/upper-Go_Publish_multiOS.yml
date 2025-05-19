@@ -1,0 +1,32 @@
+name: upper-Build_Publish-artifacts-MultiOS
+on:
+  push:
+    paths:
+      - "./upper/**"
+      - ".github/workflows/upper-capture.yml"
+  workflow_dispatch: # manual
+jobs:
+    artifacts:
+      strategy:
+        matrix:
+          os: [ubuntu-latest, macos-latest, windows-latest]
+      runs-on: ${{ matrix.os }}
+      defaults:
+        run:
+           working-directory: upper
+      steps:
+        - uses: actions/checkout@v4
+        - uses: actions/setup-go@v5
+          with:
+            go-version: '1.22'
+            cache-dependency-path: ./upper/go.sum
+        - run: ls -ltr
+        - run: go build
+        - run: ls -ltr
+        - run: go test -v
+        - run: ./upper arnesh dey
+        - name: build
+          uses: actions/upload-artifact@v4
+          with:
+                path: ./upper/upper
+                name: "build-${{ matrix.os }}"
