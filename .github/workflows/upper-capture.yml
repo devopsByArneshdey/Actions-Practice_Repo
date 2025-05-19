@@ -1,0 +1,25 @@
+name: upper-build-action-onVS
+on:
+  push:
+    paths:
+      - "./upper/**"
+      - ".gihub/workflows/upper-capture.yml"
+  workflow_dispatch: # manual
+jobs:
+    capture:
+        runs-on: macos-latest
+        defaults:
+          run:
+            working-directory: upper
+        steps:
+          - uses: actions/checkout@v4
+          - uses: actions/setup-go@v5
+            with:
+                go-version: '1.22'
+                cache-dependency-path: ./upper/go.sum
+          - run: ls -ltr
+          - run: go build
+          - run: ls -ltr
+          - run: go test -v
+          - run: ./upper arnesh dey
+       
