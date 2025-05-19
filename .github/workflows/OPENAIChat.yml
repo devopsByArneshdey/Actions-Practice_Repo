@@ -47,7 +47,7 @@ jobs:
               f.write(comment)
           "
 
-      - name: Post Comment to PR
+      - name: Post Comment to PR!
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |

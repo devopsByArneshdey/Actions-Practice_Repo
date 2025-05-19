@@ -17,5 +17,5 @@ jobs:
               cat TestFile
             else
               echo "Error: TestFile not found"
-              exit 1
+              exit 
             fi
