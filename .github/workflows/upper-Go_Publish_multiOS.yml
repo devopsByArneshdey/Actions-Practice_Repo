@@ -3,7 +3,7 @@ on:
   push:
     paths:
       - "./upper/**"
-      - ".github/workflows/upper-capture.yml"
+      - ".github/workflows/upper-Go_Publish_multiOS.yml"
   workflow_dispatch: # manual
 jobs:
     artifacts:
