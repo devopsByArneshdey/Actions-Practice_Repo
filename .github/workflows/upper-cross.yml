@@ -19,7 +19,9 @@ jobs:
             with:
                 go-version: '1.22'
                 cache-dependency-path: ./upper/go.sum
-          - run: ./build.xplat.sh
+          - run: |
+              chmod +x build.xplat.sh
+              ./build.xplat.sh
           - name: build
             uses: actions/upload-artifact@v4
             with:
