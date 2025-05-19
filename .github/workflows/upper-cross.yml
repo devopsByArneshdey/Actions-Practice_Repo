@@ -1,0 +1,27 @@
+name: upper-build-MultiOSArtifact-xplatScript
+on:
+  push:
+    paths:
+      - "./upper/**"
+      - ".github/workflows/upper-cross.yml"
+  workflow_dispatch: # manual
+jobs:
+    cross:
+      permissions:
+        contents: write
+      runs-on: ubuntu-latest
+      defaults:
+          run:
+            working-directory: upper
+      steps:
+          - uses: actions/checkout@v4
+          - uses: actions/setup-go@v5
+            with:
+                go-version: '1.22'
+                cache-dependency-path: ./upper/go.sum
+          - run: ./build.xplat.sh
+          - name: build
+            uses: actions/upload-artifact@v4
+            with:
+                path: ./upper/bin/upper*
+                name: build
