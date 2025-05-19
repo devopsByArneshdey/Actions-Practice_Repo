@@ -21,8 +21,8 @@ jobs:
                 cache-dependency-path: ./upper/go.sum
           - run: |
               ls -ltr
-              chmod +x build.xplat.sh
-              ./build.xplat.sh
+              chmod +x build_xplat.sh
+              ./build_xplat.sh
           - name: build
             uses: actions/upload-artifact@v4
             with:
