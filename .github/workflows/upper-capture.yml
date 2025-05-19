@@ -22,4 +22,7 @@ jobs:
           - run: ls -ltr
           - run: go test -v
           - run: ./upper arnesh dey
-       
+          - name: build
+            uses: actions/upload-artifact@v4
+            with:
+                path: ./upper/upper
