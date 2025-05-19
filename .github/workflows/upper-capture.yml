@@ -3,7 +3,7 @@ on:
   push:
     paths:
       - "./upper/**"
-      - ".gihub/workflows/upper-capture.yml"
+      - ".github/workflows/upper-capture.yml"
   workflow_dispatch: # manual
 jobs:
     capture:
