@@ -1,0 +1,1 @@
+[![publishing_artificats to release](https://github.com/devopsByArneshdey/Actions-Practice_Repo/actions/workflows/PublishArtifactsRelease.yml/badge.svg)](https://github.com/devopsByArneshdey/Actions-Practice_Repo/actions/workflows/PublishArtifactsRelease.yml)
