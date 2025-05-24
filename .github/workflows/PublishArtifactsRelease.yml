@@ -3,7 +3,7 @@ on:
   push:
     paths:
       - "./upper/**"
-      - ".github/workflows/upper-cross.yml"
+      - ".github/workflows/PublishArtifactsRelease.yml"
   workflow_dispatch: # manual
 jobs:
     cross:
