@@ -4,7 +4,7 @@ on:
     paths:
       - "./upper/**"
       - ".github/workflows/PublishArtifactsRelease.yml"
-  workflow_dispatch: # manual
+  workflow_dispatch: # manual trigger
 jobs:
     cross:
       permissions:
