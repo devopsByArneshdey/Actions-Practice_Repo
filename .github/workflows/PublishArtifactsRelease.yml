@@ -4,7 +4,7 @@ on:
     paths:
       - "./upper/**"
       - ".github/workflows/PublishArtifactsRelease.yml"
-  workflow_dispatch: # manual1
+  workflow_dispatch: # manual
 jobs:
     cross:
       permissions:
@@ -28,5 +28,4 @@ jobs:
                 files: ./upper/bin/upper*
                 body: "Release for GO based ALL CAPS tool"
                 tag_name: ${{ github.ref_name }}
-            env:
-                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            if: startsWith(github.ref, 'refs/tags/')
