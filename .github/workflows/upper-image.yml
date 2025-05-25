@@ -24,8 +24,7 @@ jobs:
                 registry: ghcr.io
                 username: ${{ github.repository_owner }} #devopsbyarneshdey
                 password: ${{ secrets.GITHUB_TOKEN }}
-            - name: Tag Docker image as latest
-              run: docker tag upper ghcr.io/${{ github.repository_owner }}/upper:latest
-            - run: docker tag upper ghcr.io/${{ github.repository_owner }}/upper:${{ github.ref_name }}
-            - run: docker push ghcr.io/${{ github.repository_owner }}/upper:latest
-            - run: docker push ghcr.io/${{ github.repository_owner }}/upper:${{ github.ref_name }}
+            - run: docker tag upper ghcr.io/devopsbyarneshdey/upper:latest
+            - run: docker tag upper ghcr.io/devopsbyarneshdey/upper:${{ github.ref_name }}
+            - run: docker push ghcr.io/devopsbyarneshdey/upper:latest
+            - run: docker push ghcr.iodevopsbyarneshdey/upper:${{ github.ref_name }}
