@@ -17,4 +17,4 @@ jobs:
         - run: | 
               docker version
               ls -al
-              docker run -rm -i -t ghcr.io/devopsbyarneshdey/upper:${{ github.event.inputs.tag }} hello arnesh
+              docker run -it ghcr.io/devopsbyarneshdey/upper:${{ github.event.inputs.tag }} hello arnesh
