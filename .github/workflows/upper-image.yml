@@ -27,4 +27,4 @@ jobs:
             - run: docker tag upper ghcr.io/devopsbyarneshdey/upper:latest
             - run: docker tag upper ghcr.io/devopsbyarneshdey/upper:${{ github.ref_name }}
             - run: docker push ghcr.io/devopsbyarneshdey/upper:latest
-            - run: docker push ghcr.iodevopsbyarneshdey/upper:${{ github.ref_name }}
+            - run: docker push ghcr.io/devopsbyarneshdey/upper:${{ github.ref_name }}
