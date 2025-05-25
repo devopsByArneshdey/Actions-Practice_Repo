@@ -1,0 +1,20 @@
+name: run-doccker-package
+on: 
+  workflow_dispatch:
+    inputs:
+        tag:
+            required: true
+            description: tag for your package
+            default: main
+jobs:
+    build-docker:
+        permissions:
+            packages: read
+            contents: read
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v4
+        - run: | 
+              docker version
+              ls -al
+              docker run -rm -i -t ghcr.io/devopsbyarneshdey/upper:${{ github.event.inputs.tag }} hello arnesh
