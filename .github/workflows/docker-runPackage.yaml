@@ -22,5 +22,5 @@ jobs:
         - run: | 
               docker version
               ls -al
-              docker run --rm -i ghcr.io/devopsbyarneshdey/upper:${{ github.event.inputs.tag }} hello arnesh < /dev/null
+              echo "hello arnesh" | docker run --rm -i ghcr.io/devopsbyarneshdey/upper:${{ github.event.inputs.tag }}
 
