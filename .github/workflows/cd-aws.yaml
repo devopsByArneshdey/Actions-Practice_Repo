@@ -1,9 +1,9 @@
 name: cd-build-push-dockerhub
 on:
-  push:
-    paths:
-      - "./api/**"
-      - ".github/workflows/cd-build-push.yaml"
+  #push:
+  #  paths:
+  #    - "./api/**"
+  #    - ".github/workflows/cd-build-push.yaml"
   workflow_dispatch: # manual
 
 jobs:
@@ -22,4 +22,8 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - run: ./build-push.sh
       working-directory: ./api
+   deploy:
+    runs-on : ubuntu-latest
+    needs: build-push
+    
 
