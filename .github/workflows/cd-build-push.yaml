@@ -26,4 +26,4 @@ jobs:
     - run: |
         chmod +x build-only.sh
         chmod +x build-push.sh
-        ./build-push.sh
+        sh -x build-push.sh
