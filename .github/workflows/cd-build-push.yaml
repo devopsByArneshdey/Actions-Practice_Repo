@@ -20,6 +20,5 @@ jobs:
         registry: docker.io
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-    - run: ./build-push.sh
+    - run: sh -x build-push.sh
       working-directory: ./api
-
