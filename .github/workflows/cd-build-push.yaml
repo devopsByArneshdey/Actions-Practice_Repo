@@ -9,6 +9,9 @@ on:
 jobs:
    build-push:
     runs-on: ubuntu-latest
+    defaults:
+      run: 
+        working-directory: ./api
     steps:
     - uses: actions/checkout@v4
       with:
@@ -21,6 +24,6 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - run: |
+        chmod +x build-only.sh
         chmod +x build-push.sh
         ./build-push.sh
-      working-directory: ./api
