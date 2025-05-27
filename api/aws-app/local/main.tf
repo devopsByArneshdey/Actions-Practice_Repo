@@ -45,7 +45,7 @@ resource "aws_key_pair" "sample_key" {
 }
 
 resource "aws_apprunner_service" "web_api" {
-    service_name="web_api"
+    service_name = "web_api"
     source_configuration {
       image_repository {
         image_identifier="dockerbot93/actions-web-test:latest"
