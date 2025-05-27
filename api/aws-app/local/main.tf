@@ -44,27 +44,20 @@ resource "aws_key_pair" "sample_key" {
   }
 }
 
-resource "aws_instance" "sample_server" {
-  ami                    = data.aws_ami.ubuntu.id
-  instance_type          = "t2.micro"
-  vpc_security_group_ids = ["sg-0b1a8249c6307592d"]
-  key_name               = aws_key_pair.sample_key.key_name
-
-  tags = {
-    "Name" = "dotnetwebapi"
-  }
-  site_config {
-    # site_config options: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_web_app#always_on
-    always_on = false # must be false for F1 (free)
-
-    # legacy app_service used linux_fx_version: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service#linux_fx_version
-    #   i.e. linux_fx_version = "DOCKER|dockerbot93/actions-web-test:latest"
-    #   use application_stack instead:
-    application_stack {
-      docker_image_name   = "dockerbot93/actions-web-test:latest"
-      docker_registry_url = "https://index.docker.io" 
+resource "aws_apprunner_service" "web_api" {
+    service_name="web_api"
+    source_configuration {
+      image_repository {
+        image_identifier="dockerbot93/actions-web-test:latest"
+        image_repository_type = "DOCKER_HUB"
+        image_configuration {
+            port = "80"
+        }
+      }
+        auto-deployments_enabled = true
     }
 }
+
 output "sample_server_dns" {
   value = aws_instance.sample_server.public_dns
 }
