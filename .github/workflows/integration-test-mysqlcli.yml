@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: generate
     container: #Container Job: Its container inside of which our job will run
-        image: mysql:8.5
+        image: mysql:9.3
 
     steps:
       - run: echo "Testing with RANDOM_PASSWORD=${{ needs.generate.outputs.RANDOM_PASSWORD }}"
