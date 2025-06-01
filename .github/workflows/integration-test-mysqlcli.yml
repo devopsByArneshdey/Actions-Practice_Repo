@@ -19,8 +19,20 @@ jobs:
     runs-on: ubuntu-latest
     needs: generate
     container: #Container Job: Its container inside of which our job will run
+        image: mysql:9.3 #Client Container to run connectivity to Service below/Services container
+    services: #Mysql Server side conf
+      adminmysqlserver:
         image: mysql:9.3
+        env:
+          MYSQL_ROOT_PASSWORD: ${{ needs.generate.outputs.RANDOM_PASSWORD }}
+          MYSQL_DATABASE: personaldba
+        #Options to define health checks for the service and if the services/server container is healthy for ping test from Client
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
       - run: echo "Testing with RANDOM_PASSWORD=${{ needs.generate.outputs.RANDOM_PASSWORD }}"
       - run: mysql --version
+      - run: mysql -h adminmysqlserver -u root -p${{ needs.generate.outputs.RANDOM_PASSWORD }} -e "SHOW DATABASES;"
+      # Dump some additional information about the job and its services
+      - run: echo "job.services= ${{ toJson(job.services)}}" #Dumps out context of job.services
+      - run: echo "job.container= ${{ toJson(job.container)}}" #Dumps out context of job.container OR Client
