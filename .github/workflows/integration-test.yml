@@ -2,7 +2,7 @@ name: integrations-test
 on: 
     push:
       paths:
-        - ".github/workflow/integration-test.yml"
+        - ".github/workflows/integration-test.yml"
     workflow_dispatch: # manual
 jobs:
   generate:
