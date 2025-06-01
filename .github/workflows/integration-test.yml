@@ -6,10 +6,17 @@ on:
     workflow_dispatch: # manual
 jobs:
   generate:
+    outputs:
+      RANDOM_PASSWORD: ${{ env.RANDOM_PASSWORD }}
     runs-on: ubuntu-latest
     steps:
       - run: env | sort
       - run: echo "RANDOM_PASSWORD=$(LC_ALL=C tr -dc A-Za-z0-9 </dev/urandom | head -c 12)" >> "$GITHUB_ENV"
       - run: echo "$RANDOM_PASSWORD / ${{ env.RANDOM_PASSWORD }}"
       - run: env | sort
-  
+      # - run: mysql ... -p $RANDOM_PASSWORD
+  testing:
+    runs-on: ubuntu-latest
+    needs: generate
+    steps:
+      - run: echo "Testing with RANDOM_PASSWORD=${{ needs.generate.outputs.RANDOM_PASSWORD }}"
