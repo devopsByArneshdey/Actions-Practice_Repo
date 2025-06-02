@@ -1,0 +1,42 @@
+name: Reusable Workflow to Deploy .NET App
+
+on:
+  workflow_call:
+    inputs:
+      package-name:
+        required: true
+        type: string
+      app-name:
+        required: true
+        type: string
+      deployment-slot:
+        required: true
+        type: string
+    secrets:
+      azure-profile:
+        required: false
+
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: 'production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}  
+    steps:
+      - name: Set package_name variable
+        id: vars
+        run: echo "package_name=net-app-${{ runner.os }}" >> $GITHUB_OUTPUT
+      - name: Download Artifact for build job
+        uses: actions/download-artifact@v4
+        with:
+          # Artifact name
+          name: ${{ inputs.package_name}}
+      - name: Print Repo Location
+        run: echo "Workflow stored in shared-workflows branch in shared repo"
+
+      - name: Checking downloaded files
+        run: |
+          echo "Downloaded App files for ${{ inputs.app-name }}"
+          pwd
+          ls -la
