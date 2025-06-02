@@ -39,4 +39,4 @@ jobs:
         run: |
           echo "Downloaded App files for ${{ inputs.app-name }}"
           pwd
-          ls -la
+          ls -la ./${{ inputs.app-name }}
